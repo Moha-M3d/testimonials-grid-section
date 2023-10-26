@@ -1,0 +1,180 @@
+:root {
+    /* Primary Colors */
+    --moderate-violet: hsl(263, 55%, 52%);
+    --hsl-gray: 217, 19%, 35%;
+    --very-dark-grayish-blue: hsl(var(--hsl-gray));
+    --hsl-blackish-blue: 219, 29%, 14%;
+    --very-dark-blackish-blue: hsl(var(--hsl-blackish-blue));
+    --hsl-white: 0, 0%, 100%;
+    --white: hsl(var(--hsl-white));
+
+    /* Neutral Colors */
+    --light-grayish-blue: hsl(210, 46%, 95%);
+
+    /* Paddings */
+    --section-padding: 30px;
+
+    /* Grid Gap */
+    --gap: 20px;
+    --section-gap: 20px;
+
+    /* Font */
+    --main-ff: 'Barlow Semi Condensed', sans-serif;
+    --font-size: 13px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Small */
+@media (min-width: 768px){
+    .testim-wrapper {
+        width: 750px;
+    }
+}
+
+/* Medium */
+@media (min-width: 992px){
+    .testim-wrapper {
+        width: 970px;
+    }
+}
+
+/* Large */
+@media (min-width: 1200px){
+    .testim-wrapper {
+        width: 1170px;
+    }
+}
+
+
+
+body {
+    background-color: var(--light-grayish-blue);
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    font-family: var(--main-ff);
+    font-size: var(--font-size);
+    font-weight: 600;
+    padding: 40px var(--gap);
+}
+
+.testim-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--gap);
+
+}
+
+@media(min-width: 991px) {
+    .testim-wrapper {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas: "daniel daniel  john    kira"
+                             "jean   patrick patrick kira";
+    }
+
+    .section.daniel {
+        grid-area: daniel;
+    }
+
+    .section.patrick {
+        grid-area: patrick;
+    }
+
+    .section.kira {
+        grid-area: kira;
+    }
+}
+
+.section {
+    padding: var(--section-padding);
+    display: flex;
+    flex-flow: column nowrap;
+    gap: var(--section-gap);
+    border-radius: 8px;
+}
+
+.section.white-bg {
+    box-shadow: 0 0 2px 0 rgba(212, 212, 212, 0.1),
+                25px 30px 20px -20px rgba(17, 17, 17, 0.1);
+    background-color: var(--white);
+}
+
+.section.white-bg {
+    --color: var(--hsl-gray);
+    color: hsl(var(--color));
+}
+
+.section:not(.white-bg) {
+    --color: var(--hsl-white);
+    color: hsl(var(--color));
+}
+
+.section .light-color {
+    color: hsl(var(--color), 50%);
+}
+
+.section .very-light-color {
+    color: hsl(var(--color), 70%);
+}
+
+.section.daniel {
+    background-color: var(--moderate-violet);
+    position: relative;
+    isolation: isolate;
+}
+
+.section.daniel .bg-pattern {
+    position: absolute;
+    top: 0;
+    right: 12%;
+    z-index: -1;
+}
+
+.section.daniel .bg-pattern img {
+    width: 140px;
+}
+
+.section.jonathan {
+    background-color: var(--very-dark-grayish-blue);
+}
+
+.section.patrick {
+    background-color: var(--very-dark-blackish-blue);
+}
+
+.graduate-info {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.graduate-image {
+    max-width: 40px;
+    flex: 0 0 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.graduate-name {
+    display: block;
+    font-size: 1.2em;
+}
+
+.graduate-state {
+    display: block;
+}
+
+.section p.light {
+    line-height: 1.7;
+}
+
+.section .bold {
+    font-size: 1.5em;
+    font-weight: 700;
+}
